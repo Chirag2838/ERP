@@ -10,10 +10,9 @@ const changeStudentPass = require('../controllers/changeStudentPass.controller')
 const updateFees = require('../controllers/updateFees.controller');
 const createClass = require('../controllers/createClass.controller');
 const submitFees = require('../controllers/submitFees.controller');
+const login = require('../controllers/login.controller');
 
-router.get('/admin/login', auth, (req, res) => {
-    res.send('You are logged in as Admin');
-});
+router.get('/admin/login', login);
 
 router.post('/admin/createFaculty', createFaculty);
 
