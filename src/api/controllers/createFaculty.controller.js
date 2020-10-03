@@ -5,7 +5,6 @@ const createFaculty = async (req, res) => {
         const faculty = await Faculty.findOne({$or : [{username : req.body.username}, {facId: req.body.facId}]});
         if (!faculty) {
             const newFaculty = new Faculty(req.body);
-            console.log(newFaculty);
             await newFaculty.save();
             res.send(`New Faculty ${req.body.firstname} has been added`);
         }

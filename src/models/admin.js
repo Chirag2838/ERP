@@ -16,8 +16,6 @@ adminSchema.statics.findByCredentials = async (username, password) => {
 
 adminSchema.methods.generateAuthToken = async function () {
     const admin = this;
-    console.log(admin);
-    console.log(process.env.JWT_KEY);
     const token = jwt.sign({_id : admin._id.toString()}, process.env.JWT_KEY);
     admin.token = token;
     await admin.save();
