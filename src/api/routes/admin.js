@@ -11,6 +11,8 @@ const updateFees = require('../controllers/updateFees.controller');
 const createClass = require('../controllers/createClass.controller');
 const submitFees = require('../controllers/submitFees.controller');
 const login = require('../controllers/login.controller');
+const uploadDocument = require('../controllers/uploadDocument');
+const upload = require('../controllers/validateDoc.controller');
 
 router.get('/admin/login', login);
 
@@ -31,5 +33,7 @@ router.post('/admin/updateFees', auth, updateFees);
 router.post('/admin/createClass', auth, createClass);
 
 router.post('/admin/submitFees', auth, submitFees);
+
+router.post('/admin/uploadDocument', auth, upload.single('newDocument'), uploadDocument);
 
 module.exports = router;
